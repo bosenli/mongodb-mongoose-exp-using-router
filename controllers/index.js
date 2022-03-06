@@ -1,4 +1,4 @@
-//handle logic for CRUD, controller seems like a function control , that we see on manufacure there are different function to control a machine on the machine. 
+//handle logic with function for CRUD, controller seems like a function control , that we see on manufacure there are different function to control a machine on the machine. 
 const res = require('express/lib/response');
 const Plant = require('../models/plant');
 
@@ -55,10 +55,10 @@ async function getPlantById(req, res) {
 //     }
 //   }
   
-const updatePlant =  (req, res) => {
+const updatePlant = async (req, res) => {
     try {
       const { id } = req.params;
-     Plant.findByIdAndUpdate(id, req.body, { new: true }, function(err, plant) { // cant use arrow function
+     Plant.findByIdAndUpdate(id, req.body, { new: true }, function(err, plant) { // cant use arrow function in mongoDB
        
         if (err !== null) {
           console.log(err, 'error')
